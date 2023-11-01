@@ -4,7 +4,6 @@ const serverless = require("serverless-http");
 
 const api = express();
 const port = 3001;
-const router = express.Router();
 
 const corsOptions = {
   origin: "*",
@@ -92,7 +91,7 @@ const products = [
 
 api.use(cors(corsOptions));
 
-router.get("/products", (req, res) => {
+api.get("/api/products", (req, res) => {
   setTimeout(() => {
     res.json(products);
   }, 2000);
